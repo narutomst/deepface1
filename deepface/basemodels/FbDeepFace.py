@@ -2,14 +2,16 @@ import os
 import zipfile
 import gdown
 import tensorflow as tf
-from deepface.commons import functions
+from deepface.commons import package_utils, functions
 
 # --------------------------------
 # dependency configuration
 
-tf_version = int(tf.__version__.split(".", maxsplit=1)[0])
-
-if tf_version == 1:
+# tf_version = int(tf.__version__.split(".", maxsplit=1)[0])
+tf_major = package_utils.get_tf_major_version()
+tf_minor = package_utils.get_tf_minor_version()
+# if tf_version == 1:
+if tf_major == 1:
     from keras.models import Model, Sequential
     from keras.layers import (
         Convolution2D,
