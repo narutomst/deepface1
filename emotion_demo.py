@@ -42,7 +42,9 @@ while True:
         fps = cap.get(cv2.CAP_PROP_FPS)
         img_w = int(img.shape[1] / 2)
         img_h = int(img.shape[0] / 2)
-        demography = DeepFace.analyze(img,actions=["emotion", "age", "gender", "race"])
+
+        demography = DeepFace.analyze(img, actions=["emotion", "age", "gender", "race"])
+
         emotion = demography[0]['dominant_emotion']
         rate = demography[0]['emotion'][emotion]
         region = demography[0]['region']
