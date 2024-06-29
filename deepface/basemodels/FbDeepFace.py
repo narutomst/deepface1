@@ -15,7 +15,7 @@ if tf_major == 1:
     from keras.models import Model, Sequential
     from keras.layers import (
         Convolution2D,
-        # LocallyConnected2D,
+        # LocallyConnected2D, 
         MaxPooling2D,
         Flatten,
         Dense,
