@@ -55,9 +55,11 @@ while True:
         emotion = demography[0]['dominant_emotion']
         rate = demography[0]['emotion'][emotion]
         region = demography[0]['region']
-        
+
         img = cv2.rectangle(img,(region['x'],region['y']),(region['x']+region['w'],region['y']+region['h']),(0,255,0),2)
-        img = cv2AddChineseText(img, '{}-{}-{}-{}'.format(emotion,age,gender,race), (region['x'], region['y']-60), textColor=(0, 255, 0), textSize=60)
+        print("以上运行未出错")
+        # img = cv2AddChineseText(img, '{}-{}-{}-{}'.format(emotion,age,gender,race), (region['x'], region['y']-60), textColor=(0, 255, 0), textSize=60)
+        img = cv2AddChineseText(img, '{}'.format(emotion), (region['x'], region['y']-60), textColor=(0, 255, 0), textSize=60)
         # pass
         img = cv2AddChineseText(img,f'{fps}-{img_w}-{img_h}', (0, 0), textColor=(0, 255, 0), textSize=10)
     except ValueError:
