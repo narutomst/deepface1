@@ -62,6 +62,7 @@ while True:
         img = cv2AddChineseText(img, '{}'.format(emotion), (region['x'], region['y']-60), textColor=(0, 255, 0), textSize=60)
         # pass
         img = cv2AddChineseText(img,f'{fps}-{img_w}-{img_h}', (0, 0), textColor=(0, 255, 0), textSize=10)
+    
     except ValueError:
         print('Face could not be detected. Please confirm that the picture is a face photo or consider to set enforce_detection param to False.')
         img = frame
