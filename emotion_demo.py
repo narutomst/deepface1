@@ -29,7 +29,8 @@ def cv2AddChineseText(img, text, position, textColor=(0, 255, 0), textSize=30):
 
 cap = cv2.VideoCapture(0)
 i = 0
-fps = cap.get(cv2.CAP_PROP_FPS)
+# fps = cap.get(cv2.CAP_PROP_FPS)   # 返回值为0.0
+fps = cap.get(5)    # 获取帧率
 while True:
     isuccess, frame = cap.read()
     if not isuccess:
