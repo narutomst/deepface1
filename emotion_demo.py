@@ -43,15 +43,18 @@ while True:
         img_w = int(img.shape[1] / 2)
         img_h = int(img.shape[0] / 2)
 
-        demography = DeepFace.analyze(img, actions=["emotion", "age", "gender", "race"])
+        # demography = DeepFace.analyze(img, actions=["emotion", "age", "gender", "race"])
+        # emotion = demography[0]['dominant_emotion']
+        # rate = demography[0]['emotion'][emotion]
+        # region = demography[0]['region']
+        # age = demography[0]['age']
+        # gender = demography[0]['dominant_gender']
+        # race = demography[0]['dominant_race']
 
+        demography = DeepFace.analyze(img, actions=["emotion"])
         emotion = demography[0]['dominant_emotion']
         rate = demography[0]['emotion'][emotion]
         region = demography[0]['region']
-        age = demography[0]['age']
-        gender = demography[0]['dominant_gender']
-        race = demography[0]['dominant_race']
-
         
         img = cv2.rectangle(img,(region['x'],region['y']),(region['x']+region['w'],region['y']+region['h']),(0,255,0),2)
         img = cv2AddChineseText(img, '{}-{}-{}-{}'.format(emotion,age,gender,race), (region['x'], region['y']-60), textColor=(0, 255, 0), textSize=60)
